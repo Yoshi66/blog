@@ -24,6 +24,13 @@
       </tr>
     <% end %>
   </tbody>
+  <% if Post.exists?(:position => "a") %>
+    <%= link_to 'a', Post.find_by(position: 'a') %>
+  <% end %>
+  <% if Post.exists?(:position => "b")  %>
+    <%= link_to 'b', Post.find_by(position: 'b') %>
+  <% end %>
+  <p>D</p>
 </table>
 
 <br>
