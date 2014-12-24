@@ -11,7 +11,7 @@
       <th></th>
     </tr>
   </thead>
-
+  <% if Post.exists? %>
   <tbody>
     <% @posts.each do |post| %>
       <tr>
@@ -24,6 +24,7 @@
       </tr>
     <% end %>
   </tbody>
+  <% end %>
   <% if Post.exists?(:position => "a") %>
     <%= link_to 'a', Post.find_by(position: 'a') %>
   <% end %>
