@@ -4,6 +4,18 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+    @numbers = Array(1..18)
+    @line1 = ['H', 'He']
+    @line2_1 = ['Li','Be']
+    @line2_2 = ['B','C','N','O','F','Ne']
+    @line3_1 = ['Na', 'Mg']
+    @line3_2 = "Al,Si,P,S,Cl,Ar".split(',')
+    @line4 = "K,Ca,Sc,Ti,V,Cr,Mn,Fe,Co,Ni,Cu,Zn,Ga,Ge,As,Se,Br,Kr".split(',')
+    @line5 = 'Rb,Sr,Y,Zr,Nb,Mo,Tc,Ru,Rh,Pd,Ag,Cd,In,Sn,Sb,Te,I,Xe'.split(',')
+    @line6 = 'Cs,Ba,*,Hf,Ta,W,Re,Os,Ir,Pt,Au,Hg,Tl,Pb,Bi,Po,At,Rn'.split(',')
+    @line7 = 'Fr,Ra,**,Rf,Db,Sg,Bh,Hs,Mt,Ds,Rg,Cn,Uut,Fl,Uup,Lv,Uus,Uuo'.split(',')
+    @line8 = ' ,*,La,Ce,Pr,Nd,Pm,Sm,Eu,Gd,Tb,Dy,Ho,Er,Tm,Yb,Lu, ,'.split(',')
+    @line9 = ' ,**,Ac,Th,Pa,U,Np,Pu,Am,Cm,Bk,Cf,Es,Fm,Md,No,Lr, ,'.split(',')
     @posts = Post.all
   end
 
