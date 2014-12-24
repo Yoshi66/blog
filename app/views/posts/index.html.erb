@@ -1,38 +1,4 @@
-<h1>Listing posts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Subtitle</th>
-      <th>Content</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <% if Post.exists? %>
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.subtitle %></td>
-        <td><%= post.content %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-  <% end %>
-  <% if Post.exists?(:position => "a") %>
-    <%= link_to 'a', Post.find_by(position: 'a') %>
-  <% end %>
-  <% if Post.exists?(:position => "b")  %>
-    <%= link_to 'b', Post.find_by(position: 'b') %>
-  <% end %>
-  <p>D</p>
-</table>
+<h1>Periodic Table</h1>
 
 <br>
 
@@ -43,73 +9,131 @@
 
 <div class='container clearfix' id="group-number">
   <% @numbers.each do |a| %>
-    <span class='group'><%= link_to a, '#'%></span>
+    <% if Post.exists?(:position => a)%>
+      <span class='group'><%= link_to a, Post.find_by(position: a)%></span>
+    <% else %>
+      <span class='group'><%= link_to a, '#' %></span>
+    <% end %>
   <% end %>
 </div>
 
 <div class="container clearfix" id='line1'>
-    <span class='grid1 first'><%= link_to @line1.first, '#'%></span>
+    <% if Post.exists?(:position => @line1.first)%>
+      <span class='grid1'><%= link_to @line1.first, Post.find_by(position: @line1.first)%></span>
+    <% else %>
+      <span class='grid1'><%= link_to @line1.first, '#' %>
+    <% end %>
     <% 16.times do |a|%>
       <span class='grid-transparent'></span>
     <% end %>
-    <span class='grid1'><%= link_to @line1.second, '#'%></span>
+    <% if Post.exists?(:position => @line1.second)%>
+      <span class='grid1'><%= link_to @line1.second, Post.find_by(position: @line1.second)%></span>
+    <% else %>
+      <span class='grid1'><%= link_to @line1.second, '#' %>
+    <% end %>
 </div>
 
 <div class="container clearfix" id='line2'>
-    <span class='grid1 first'><%= link_to @line2_1.first, '#'%></span>
-    <span class='grid1'><%= link_to @line2_1.second, '#'%></span>
+     <% @line2_1.each do |a| %>
+      <% if Post.exists?(:position => a)%>
+        <span class='grid1'><%= link_to a, Post.find_by(position: a)%></span>
+      <% else %>
+        <span class='grid1'><%= link_to a, '#' %></span>
+      <% end %>
+    <% end %>
+
     <% 10.times do |a|%>
       <span class='grid-transparent'></span>
     <% end %>
+
     <% @line2_2.each do |a| %>
-      <span class='grid1'><%= link_to a, '#'%></span>
+      <% if Post.exists?(:position => a)%>
+        <span class='grid1'><%= link_to a, Post.find_by(position: a)%></span>
+      <% else %>
+        <span class='grid1'><%= link_to a, '#' %></span>
+      <% end %>
     <% end %>
 </div>
 
 <div class="container clearfix" id='line3'>
-    <span class='grid1 first'><%= link_to @line3_1.first, '#'%></span>
-    <span class='grid1'><%= link_to @line3_1.second, '#'%></span>
+    <% @line3_1.each do |a| %>
+      <% if Post.exists?(:position => a)%>
+        <span class='grid1 '><%= link_to a, Post.find_by(position: a)%></span>
+      <% else %>
+        <span class='grid1 '><%= link_to a, '#' %></span>
+      <% end %>
+    <% end %>
+
     <% 10.times do |a|%>
       <span class='grid-transparent'></span>
     <% end %>
+
     <% @line3_2.each do |a| %>
-      <span class='grid1'><%= link_to a, '#'%></span>
+      <% if Post.exists?(:position => a)%>
+        <span class='grid1 '><%= link_to a, Post.find_by(position: a)%></span>
+      <% else %>
+        <span class='grid1 '><%= link_to a, '#' %></span>
+      <% end %>
     <% end %>
 </div>
 
 <div class="container clearfix" id='line4'>
     <% @line4.each do |a|%>
-      <span class='grid1'><%= link_to a, '#'%></span>
+      <% if Post.exists?(:position => a)%>
+        <span class='grid1 '><%= link_to a, Post.find_by(position: a)%></span>
+      <% else %>
+        <span class='grid1 '><%= link_to a, '#' %></span>
+      <% end %>
     <% end %>
 </div>
 
 <div class="container clearfix" id='line5'>
     <% @line5.each do |a|%>
-      <span class='grid1'><%= link_to a, '#'%></span>
+      <% if Post.exists?(:position => a)%>
+        <span class='grid1 '><%= link_to a, Post.find_by(position: a)%></span>
+      <% else %>
+        <span class='grid1 '><%= link_to a, '#' %></span>
+      <% end %>
     <% end %>
 </div>
 
 <div class="container clearfix" id='line6'>
     <% @line6.each do |a|%>
-      <span class='grid1'><%= link_to a, '#'%></span>
+      <% if Post.exists?(:position => a)%>
+        <span class='grid1 '><%= link_to a, Post.find_by(position: a)%></span>
+      <% else %>
+        <span class='grid1 '><%= link_to a, '#' %></span>
+      <% end %>
     <% end %>
 </div>
 
 <div class="container clearfix" id='line7'>
     <% @line7.each do |a|%>
-      <span class='grid1'><%= link_to a, '#'%></span>
+      <% if Post.exists?(:position => a)%>
+        <span class='grid1 '><%= link_to a, Post.find_by(position: a)%></span>
+      <% else %>
+        <span class='grid1 '><%= link_to a, '#' %></span>
+      <% end %>
     <% end %>
 </div>
 
 <div class="container clearfix" id='line8'>
     <% @line8.each do |a|%>
-      <span class='grid1'><%= link_to a, '#'%></span>
+      <% if Post.exists?(:position => a)%>
+        <span class='grid1 '><%= link_to a, Post.find_by(position: a)%></span>
+      <% else %>
+        <span class='grid1 '><%= link_to a, '#' %></span>
+      <% end %>
     <% end %>
 </div>
 
 <div class="container clearfix" id='line9'>
     <% @line9.each do |a|%>
-      <span class='grid1'><%= link_to a, '#'%></span>
+      <% if Post.exists?(:position => a)%>
+        <span class='grid1 '><%= link_to a, Post.find_by(position: a)%></span>
+      <% else %>
+        <span class='grid1 '><%= link_to a, '#' %></span>
+      <% end %>
     <% end %>
 </div>
 

@@ -19,6 +19,15 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+
+  #def MakeLink(a)
+   # if Post.exists?(:position => a)
+    #  <span class='grid1 first'><%= link_to @line2_1.first, Post.find_by(position: @line2_1.first)%></span>
+   # else
+    #  <span class='grid1 first'><%= link_to @line2_1.first, '#' %>
+    #end
+  #end
+
   # GET /posts/1
   # GET /posts/1.json
   def show
