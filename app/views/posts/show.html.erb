@@ -2,8 +2,10 @@
 
 <p>
   <strong>All:</strong>
-  <%= @post.articles.each do |a| %>
-    <span text='#4169e1'><%= a.title %></span>
+  <% @post.articles.each do |a| %>
+    <span><%= a.title %></span>
+    <span><%= a.subtitle%></span>
+    <span><%= a.content %></span>
   <% end %>
 </p>
 
