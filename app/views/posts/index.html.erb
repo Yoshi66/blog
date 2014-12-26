@@ -21,7 +21,7 @@
     <% if Post.exists?(:position => @line1.first)%>
       <span class='grid1'><%= link_to @line1.first, Post.find_by(position: @line1.first)%></span>
     <% else %>
-      <span class='grid1'><%= link_to @line1.first, '#' %>
+      <span class='grid1'><%= link_to @line1.first, '#' %></span>
     <% end %>
     <% 16.times do |a|%>
       <span class='grid-transparent'></span>
