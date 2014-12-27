@@ -14,7 +14,9 @@
   <div class='field'>
     <%= f.label :position %><br>
     <%= f.text_field :position %>
+    <%#<%= f.select :position, :options_for_elements, prompt: "Element" %>
   </div>
+
 
   <%= fields_for(@article) do |u| %>
     <div class="field">
