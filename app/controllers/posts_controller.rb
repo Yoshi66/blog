@@ -61,16 +61,22 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
-    @article = @post.articles.build(article_params)
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to posts_path, notice: 'Post was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @post }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+    logger.debug '/////////////////////'
+    logger.debug params[:article][:pass]
+    if params[:article][:pass] == 'apple'
+      @post = Post.new(post_params)
+      @article = @post.articles.build(article_params)
+      respond_to do |format|
+        if @post.save
+          format.html { redirect_to posts_path, notice: 'Post was successfully created.' }
+          format.json { render action: 'show', status: :created, location: @post }
+        else
+          format.html { render action: 'new' }
+          format.json { render json: @post.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      redirect_to posts_path
     end
   end
 
@@ -110,6 +116,6 @@ class PostsController < ApplicationController
     end
 
     def article_params
-      params.require(:article).permit(:title, :subtitle, :content)
+      params.require(:article).permit(:title, :subtitle,:content,:pass)
     end
 end

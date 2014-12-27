@@ -24,16 +24,20 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    @post = Post.find(params[:post_id])
-    @article = @post.articles.build(article_params)
-    respond_to do |format|
-      if @article.save
-        format.html { redirect_to @post, notice: 'Article was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @article }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
+    if params[:article][:pass] == 'apple'
+      @post = Post.find(params[:post_id])
+      @article = @post.articles.build(article_params)
+      respond_to do |format|
+        if @article.save
+          format.html { redirect_to @post, notice: 'Article was successfully created.' }
+          format.json { render action: 'show', status: :created, location: @article }
+        else
+          format.html { render action: 'new' }
+          format.json { render json: @article.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      redirect_to posts_path
     end
   end
 

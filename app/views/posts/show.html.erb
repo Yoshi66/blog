@@ -1,24 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>All:</strong>
+<div style="width: 927px;">
   <% @post.articles.each do |a| %>
-    <span><%= a.title %></span>
-    <span><%= a.subtitle%></span>
+    <tr>
+      <td width='100px;'><h1><%= a.title %></h1></td>
+      <td style='color:#ccc;vertical-align:middle;'><h2><%= a.subtitle%></h2></td>
+    </tr>
     <span><%= a.content %></span>
   <% end %>
-</p>
+</div>
 
 <section>
   <%= form_for([@post, @article]) do |f|%>
       <div class="field">
-        <%= f.text_field :title%>
+        <%= f.text_field :title, placeholder: 'title'%>
       </div>
       <div class="field">
-        <%= f.text_field :subtitle%>
+        <%= f.text_field :subtitle, placeholder: 'subtitle'%>
       </div>
       <div class="field">
         <%= f.text_field :content, placeholder: "content" %>
+      </div>
+      <div class='field'>
+        <%= f.text_field :pass, placeholder: 'pass' %>
       </div>
     <%= f.submit "post" %>
   <% end %>

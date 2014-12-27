@@ -1,5 +1,6 @@
 Blog::Application.routes.draw do
   root 'posts#index'
+  match '/mypost', to:'posts#new',  via:'get'
   resources :posts do
     resources :articles
   end

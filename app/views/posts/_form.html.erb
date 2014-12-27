@@ -10,14 +10,6 @@
       </ul>
     </div>
   <% end %>
-
-  <div class='field'>
-    <%= f.label :position %><br>
-    <%= f.text_field :position %>
-    <%#<%= f.select :position, :options_for_elements, prompt: "Element" %>
-  </div>
-
-
   <%= fields_for(@article) do |u| %>
     <div class="field">
       <%= u.label :title %><br>
@@ -31,8 +23,17 @@
       <%= u.label :content %><br>
       <%= u.text_field :content %>
     </div>
+    <div class='field'>
+    <%= u.label :pass %><br>
+    <%= u.text_field :pass %>
+  </div>
   <% end %>
-    <div class="actions">
+  <div class='field'>
+    <%= f.label :position %><br>
+    <%= f.text_field :position %>
+    <%#<%= f.select :position, :options_for_elements, prompt: "Element" %>
+  </div>
+  <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
