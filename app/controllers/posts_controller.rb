@@ -48,6 +48,11 @@ class PostsController < ApplicationController
     @article = Article.new
   end
 
+
+  def hbr(str)
+    h(str).gsub(/(\r\n?)|(\n)/, "<br />")
+  end
+
   # GET /posts/new
   def new
     @post = Post.new

@@ -2,11 +2,16 @@
 
 <div style="width: 927px;">
   <% @post.articles.each do |a| %>
+    <% if test(a.title)%>
+      <p>Upper</p>
+    <% else %>
+      <p>Lower</p>
+    <% end %>
     <tr>
-      <td width='100px;'><h1><%= a.title %></h1></td>
-      <td style='color:#ccc;vertical-align:middle;'><h2><%= a.subtitle%></h2></td>
+        <td width='100px;'><h1><%= a.title %></h1></td>
+        <td style='color:#ccc;vertical-align:middle;'><h3><%= a.subtitle%></h3></td>
     </tr>
-    <span><%= a.content %></span>
+    <span><%= simple_format(a.content) %></span>
   <% end %>
 </div>
 
@@ -19,7 +24,7 @@
         <%= f.text_field :subtitle, placeholder: 'subtitle'%>
       </div>
       <div class="field">
-        <%= f.text_field :content, placeholder: "content" %>
+        <%= f.text_area :content, placeholder: "content", :size =>'60x10' %>
       </div>
       <div class='field'>
         <%= f.text_field :pass, placeholder: 'pass' %>
