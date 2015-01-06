@@ -1,10 +1,10 @@
 Blog::Application.routes.draw do
   root 'posts#index'
+  match '/all_post', to:'posts#all_post', via: 'get'
   match '/mypost', to:'posts#new',  via:'get'
   resources :posts do
     resources :articles
   end
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

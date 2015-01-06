@@ -1,0 +1,12 @@
+<h1>All of My Posts</h1>
+<% @articles.each do |article| %>
+  <div>
+    <h1>Title</h1><%= article.title%><br>
+    <h2> Substile </h2><%= article.subtitle%><br>
+    <h3> Content</h3><%= article.content%><br>
+  </div>
+  <br>
+  <br>
+  <br>
+<% end %>
+<%= link_to 'Chemistry', root_path %>
